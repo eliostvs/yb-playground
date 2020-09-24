@@ -187,7 +187,7 @@ const playerMachine = Machine({
         },
         paused: {
           on: {
-            PLAY: { target: "normal", actions: [fireResume] },
+            PLAY: { target: "normal" },
           },
         },
       },
@@ -220,7 +220,7 @@ const playerMachine = Machine({
           interval: (context) => context.interval,
           currentTime: 0,
         },
-        onDone: "playing",
+        onDone: { target: "playing", actions: [fireResume] },
       },
     },
   },
