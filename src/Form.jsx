@@ -34,7 +34,7 @@ const sections = [
         required: false,
         type: "boolean",
         props: {
-          defaultChecked: false,
+          defaultChecked: true,
         },
       },
       {
