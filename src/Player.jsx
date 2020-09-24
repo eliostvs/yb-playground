@@ -21,6 +21,8 @@ import {
   fireSeekEnd,
   fireStart,
   fireStop,
+  getAdsAdapter,
+  getAdsDuration,
   updatePlayHead,
 } from "./youbora"
 
@@ -213,8 +215,8 @@ const playerMachine = Machine({
         id: "ads",
         src: adsMachine,
         data: {
-          adapter: (context) => context.plugin.getAdsAdapter(),
-          duration: (context) => context.plugin.getAdsAdapter().getDuration(),
+          adapter: getAdsAdapter,
+          duration: getAdsDuration,
           interval: (context) => context.interval,
           currentTime: 0,
         },

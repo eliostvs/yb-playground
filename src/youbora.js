@@ -116,11 +116,29 @@ const AdAdapter = youbora.Adapter.extend({
   getClickThroughURL() {
     return this.player.clickThroughURL
   },
+
+  getPosition() {
+    this.player.position
+  },
+
+  setPosition(position) {
+    this.player.position = position === 0 ? "pre" : "mid"
+  },
 })
+
+export function getAdsAdapter({ plugin, duration }) {
+  const adapter = plugin.getAdsAdapter()
+  adapter.setPosition(duration)
+  return adapter
+}
 
 export function updatePlayHead({ adapter, currentTime }) {
   adapter.player.playHead = currentTime
   return adapter
+}
+
+export function getAdsDuration({ plugin }) {
+  return plugin.getAdsAdapter().getDuration()
 }
 
 function createPlugin({ form }) {
@@ -176,6 +194,7 @@ function createAdsPlayer(form) {
     audioEnabled: form["$adsAudioEnabled"],
     version: form["$adsVersion"],
     clickThroughURL: form["$adsClickThroughURL"],
+    position: "pre",
   }
 }
 
