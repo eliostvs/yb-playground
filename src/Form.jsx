@@ -245,13 +245,13 @@ const sections = [
       },
       {
         name: "$adsDuration",
-        label: "Duration (s)",
+        label: "Duration in second",
         required: false,
         type: "number",
         props: {
-          min: 10,
+          min: 5,
           max: 120,
-          defaultValue: 10,
+          defaultValue: 5,
         },
       },
       {
