@@ -646,7 +646,7 @@ const sections = [
       },
       {
         name: "device-code",
-        label: "Code",
+        label: "Device",
         required: false,
         type: "text",
         props: {
