@@ -104,14 +104,14 @@ const sections = [
       },
       {
         name: "content-duration",
-        label: "Duration (s)",
+        label: "Duration in second",
         required: true,
         type: "number",
         props: {
-          min: "60",
+          min: "30",
           max: "3599",
-          defaultValue: "60",
-          step: "60",
+          defaultValue: "30",
+          step: "30",
         },
       },
       {
