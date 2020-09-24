@@ -1,0 +1,6 @@
+.tool-versions
+.idea/
+.cache/
+dist/
+node_modules/
+src/public/index.css
