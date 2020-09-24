@@ -152,7 +152,7 @@ const playerMachine = Machine({
   },
   on: {
     ERROR: { target: "stopped", actions: [fireFatalError] },
-    STOP: { target: "stopped", actions: [fireStop] },
+    STOP: { target: "stopped" },
   },
   states: {
     ready: {
@@ -208,6 +208,7 @@ const playerMachine = Machine({
       },
     },
     stopped: {
+      entry: [fireStop],
       type: "final",
     },
     ads: {
