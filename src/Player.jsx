@@ -670,7 +670,7 @@ function AdsButton({ state, send }) {
   return (
     <Button
       onClick={() => send("STARTED_ADS")}
-      enabled={matchesAny(state, ["playing.normal", "ready"])}
+      enabled={state.matches("playing")}
     >
       <DollarSignIcon />
     </Button>
