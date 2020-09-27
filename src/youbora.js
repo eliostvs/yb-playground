@@ -2,70 +2,6 @@ import youbora from "youboralib"
 
 youbora.Log.logLevel = youbora.Log.Level.DEBUG
 
-export function fireInit({ adapter }) {
-  adapter.fireInit()
-}
-
-export function fireJoin({ adapter }) {
-  adapter.fireJoin()
-}
-
-export function fireStop({ adapter }) {
-  adapter.fireStop()
-}
-
-export function firePause({ adapter }) {
-  adapter.firePause()
-}
-
-export function fireResume({ adapter }) {
-  adapter.fireResume()
-}
-
-export function fireSeekBegin({ adapter }) {
-  adapter.fireSeekBegin()
-}
-
-export function fireSeekEnd({ adapter }) {
-  adapter.fireSeekEnd()
-}
-
-export function fireBufferBegin({ adapter }) {
-  adapter.fireBufferBegin()
-}
-
-export function fireBufferEnd({ adapter }) {
-  adapter.fireBufferEnd()
-}
-
-export function fireAdSkip({ adapter }) {
-  adapter.fireSkip()
-}
-
-export function fireFatalError({ adapter }) {
-  adapter.fireFatalError("error-code", "error-description")
-}
-
-export function fireAdManifest({ adapter }) {
-  adapter.fireManifest()
-}
-
-export function fireAdBreakStart({ adapter }) {
-  adapter.fireBreakStart()
-}
-
-export function fireAdBreakStop({ adapter }) {
-  adapter.fireBreakStop()
-}
-
-export function fireStart({ adapter }) {
-  adapter.fireStart()
-}
-
-export function fireAdClick({ adapter }) {
-  adapter.fireClick(adapter.getClickThroughURL())
-}
-
 const Adapter = youbora.Adapter.extend({
   registerListeners() {
     this.monitorPlayhead(false, false)
@@ -126,22 +62,7 @@ const AdAdapter = youbora.Adapter.extend({
   },
 })
 
-export function getAdsAdapter({ plugin, duration }) {
-  const adapter = plugin.getAdsAdapter()
-  adapter.setPosition(duration)
-  return adapter
-}
-
-export function updatePlayHead({ adapter, currentTime }) {
-  adapter.player.playHead = currentTime
-  return adapter
-}
-
-export function getAdsDuration({ plugin }) {
-  return plugin.getAdsAdapter().getDuration()
-}
-
-function createPlugin({ form }) {
+function createPlugin(form) {
   const options = renameOptions(form)
   const plugin = new youbora.Plugin(options)
   plugin.setAdapter(new Adapter(createPlayer(options, form)))

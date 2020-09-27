@@ -3,33 +3,12 @@ import PropTypes from "prop-types"
 import { assign, Machine } from "xstate"
 import { useService } from "@xstate/react"
 
-import {
-  createPlugin,
-  fireAdBreakStart,
-  fireAdBreakStop,
-  fireAdClick,
-  fireAdManifest,
-  fireAdSkip,
-  fireBufferBegin,
-  fireBufferEnd,
-  fireFatalError,
-  fireInit,
-  fireJoin,
-  firePause,
-  fireResume,
-  fireSeekBegin,
-  fireSeekEnd,
-  fireStart,
-  fireStop,
-  getAdsAdapter,
-  getAdsDuration,
-  updatePlayHead,
-} from "./youbora"
+import { createPlugin } from "./youbora"
 
 const MILLIS = 1000
 
 const contextFactory = {
-  plugin: createPlugin,
+  plugin: (context) => createPlugin(context.form),
   adapter: null,
   currentTime: 0,
   duration: 60,
@@ -98,6 +77,85 @@ function fireQuartile({ currentTime, duration, adapter }) {
       return adapter.fireQuartile(1)
     }
   }
+}
+
+function fireInit({ adapter }) {
+  adapter.fireInit()
+}
+
+function fireJoin({ adapter }) {
+  adapter.fireJoin()
+}
+
+function fireStop({ adapter }) {
+  adapter.fireStop()
+}
+
+function firePause({ adapter }) {
+  adapter.firePause()
+}
+
+function fireResume({ adapter }) {
+  adapter.fireResume()
+}
+
+function fireSeekBegin({ adapter }) {
+  adapter.fireSeekBegin()
+}
+
+function fireSeekEnd({ adapter }) {
+  adapter.fireSeekEnd()
+}
+
+function fireBufferBegin({ adapter }) {
+  adapter.fireBufferBegin()
+}
+
+function fireBufferEnd({ adapter }) {
+  adapter.fireBufferEnd()
+}
+
+function fireAdSkip({ adapter }) {
+  adapter.fireSkip()
+}
+
+function fireFatalError({ adapter }) {
+  adapter.fireFatalError("error-code", "error-description")
+}
+
+function fireAdManifest({ adapter }) {
+  adapter.fireManifest()
+}
+
+function fireAdBreakStart({ adapter }) {
+  adapter.fireBreakStart()
+}
+
+function fireAdBreakStop({ adapter }) {
+  adapter.fireBreakStop()
+}
+
+function fireStart({ adapter }) {
+  adapter.fireStart()
+}
+
+function fireAdClick({ adapter }) {
+  adapter.fireClick(adapter.getClickThroughURL())
+}
+
+function getAdsAdapter({ plugin, duration }) {
+  const adapter = plugin.getAdsAdapter()
+  adapter.setPosition(duration)
+  return adapter
+}
+
+function updatePlayHead({ adapter, currentTime }) {
+  adapter.player.playHead = currentTime
+  return adapter
+}
+
+function getAdsDuration({ plugin }) {
+  return plugin.getAdsAdapter().getDuration()
 }
 
 const adsMachine = Machine({
