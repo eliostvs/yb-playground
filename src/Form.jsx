@@ -1299,10 +1299,10 @@ function TextField({ name, label, required, props }) {
       <FieldSet disabled={disabled}>
         <input
           {...props}
-          ref={register({ required })}
-          name={name}
-          id={name}
           className="block w-full pr-10 text-sm leading-5 rounded shadow-sm form-input"
+          id={name}
+          name={name}
+          ref={register({ required })}
         />
         <ErrorIcon name={name} errors={errors} />
       </FieldSet>
@@ -1324,11 +1324,11 @@ function NumberField({ name, label, required, props }) {
       <FieldSet disabled={disabled}>
         <input
           {...props}
-          ref={register({ required })}
+          className="block w-1/2 text-sm leading-5 rounded-md shadow-sm form-input"
           id={name}
           name={name}
+          ref={register({ required })}
           type="number"
-          className="block w-1/2 text-sm leading-5 rounded-md shadow-sm form-input"
         />
         <ErrorIcon name={name} errors={errors} />
       </FieldSet>
@@ -1350,11 +1350,11 @@ function CheckboxField({ name, label, required, props }) {
       <FieldSet disabled={disabled}>
         <input
           {...props}
-          ref={register({ required })}
-          type="checkbox"
+          className="block w-4 h-4 text-sm leading-5 shadow-sm form-checkbox"
           id={name}
           name={name}
-          className="block w-4 h-4 text-sm leading-5 shadow-sm form-checkbox"
+          ref={register({ required })}
+          type="checkbox"
         />
         <ErrorIcon name={name} errors={errors} />
       </FieldSet>
@@ -1375,10 +1375,10 @@ function SelectField({ name, label, required, options }) {
       </Label>
       <FieldSet disabled={disabled}>
         <select
-          ref={register({ required })}
+          className="block w-full text-sm leading-5 rounded-md shadow-sm form-select"
           id={name}
           name={name}
-          className="block w-full text-sm leading-5 rounded-md shadow-sm form-select"
+          ref={register({ required })}
         >
           {options.map((option) => (
             <Option key={option.code} {...option} />
