@@ -9,41 +9,36 @@ import {
 } from "./Player"
 import { Section as FormSection } from "./Form"
 
-const appState = Machine(
-  {
-    id: "app",
-    initial: "form",
-    context: {
-      form: {},
-    },
-    states: {
-      form: {
-        on: {
-          START: {
-            target: "player",
-            actions: "saveForm",
-          },
-          RESET: { actions: ["cleanContext", "cleanForm"] },
+const saveForm = assign({ form: (context, event) => event.data })
+const cleanContext = assign({ form: {} })
+const cleanForm = (context, event) => event.cleanup()
+
+const appState = Machine({
+  id: "app",
+  initial: "form",
+  context: {
+    form: {},
+  },
+  states: {
+    form: {
+      on: {
+        START: {
+          target: "player",
+          actions: [saveForm],
         },
+        RESET: { actions: [cleanContext, cleanForm] },
       },
-      player: {
-        invoke: {
-          id: "player",
-          src: playerMachine,
-          data: playerContext,
-          onDone: "form",
-        },
+    },
+    player: {
+      invoke: {
+        id: "player",
+        src: playerMachine,
+        data: playerContext,
+        onDone: "form",
       },
     },
   },
-  {
-    actions: {
-      saveForm: assign({ form: (context, event) => event.data }),
-      cleanContext: assign({ form: {} }),
-      cleanForm: (context, event) => event.cleanup(),
-    },
-  }
-)
+})
 
 function App() {
   return (
