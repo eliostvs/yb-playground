@@ -63,8 +63,8 @@ const updateAdapterPlayHead = assign({
   adapter: updatePlayHead,
 })
 
-function atEnd(context) {
-  return context.currentTime >= context.duration
+function atEnd({ currentTime, duration }) {
+  return currentTime >= duration
 }
 
 function formatCurrentTime(currentTime) {
