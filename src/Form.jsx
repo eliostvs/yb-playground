@@ -807,11 +807,11 @@ const sections = [
     ],
   },
   {
-    name: "Session",
+    name: "User",
     fields: [
       {
         name: "user-name",
-        label: "User ID",
+        label: "Name",
         required: false,
         type: "text",
         props: {
@@ -820,7 +820,7 @@ const sections = [
       },
       {
         name: "user-type",
-        label: "User Type",
+        label: "Type",
         required: false,
         type: "text",
         props: {
@@ -829,7 +829,7 @@ const sections = [
       },
       {
         name: "user-email",
-        label: "User Email",
+        label: "Email",
         required: false,
         type: "text",
         props: {
