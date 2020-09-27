@@ -265,7 +265,7 @@ function Players({ actor }) {
       {state.children.ads ? (
         <AdPlayer actor={state.children.ads} />
       ) : (
-        <Player state={state} send={send} />
+        <MainPlayer state={state} send={send} />
       )}
     </>
   )
@@ -275,7 +275,7 @@ Players.propTypes = {
   actor: PropTypes.object.isRequired,
 }
 
-function Player({ state, send }) {
+function MainPlayer({ state, send }) {
   return (
     <div className="w-4/5 p-4 bg-gray-100 border rounded-lg shadow md:w-auto">
       <CurrentTime state={state} bgColor="bg-red-300" />
@@ -311,7 +311,7 @@ const StatePropTypes = {
   }).isRequired,
 }
 
-Player.propTypes = {
+MainPlayer.propTypes = {
   ...SendPropTypes,
   ...StatePropTypes,
 }
