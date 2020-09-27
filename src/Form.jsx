@@ -70,7 +70,7 @@ const sections = [
     ],
   },
   {
-    name: "Media",
+    name: "Content",
     fields: [
       {
         name: "content-title",
@@ -83,7 +83,7 @@ const sections = [
         },
       },
       {
-        name: "content-title2",
+        name: "content-program",
         label: "Program",
         required: false,
         type: "text",
@@ -211,6 +211,158 @@ const sections = [
         required: false,
         type: "number",
       },
+      {
+        name: "content-transportFormat",
+        label: "Transport Format",
+        required: false,
+        type: "select",
+        options: [
+          { name: "", code: "" },
+          { name: "MPEG-2 TS", code: "TS" },
+          { name: "Fragmented MP4", code: "MP$" },
+        ],
+      },
+      {
+        name: "content-package",
+        label: "Package",
+        required: false,
+        type: "text",
+        props: {
+          placeholder: "Package of the media",
+        },
+      },
+      {
+        name: "content-season",
+        label: "Season",
+        required: false,
+        type: "text",
+        props: {
+          placeholder: "Season of the media",
+        },
+      },
+      {
+        name: "content-episodeTitle",
+        label: "Season",
+        required: false,
+        type: "text",
+        props: {
+          placeholder: "Episode title of the media",
+        },
+      },
+      {
+        name: "content-tvShow",
+        label: "TV Show",
+        required: false,
+        type: "text",
+        props: {
+          placeholder: "TV Show of the media",
+        },
+      },
+      {
+        name: "content-channel",
+        label: "Channel",
+        required: false,
+        type: "text",
+        props: {
+          placeholder: "channel name of the media",
+        },
+      },
+      {
+        name: "content-saga",
+        label: "Saga",
+        required: false,
+        type: "text",
+        props: {
+          placeholder: "Saga of the media",
+        },
+      },
+      {
+        name: "content-id",
+        label: "ID",
+        required: false,
+        type: "text",
+        props: {
+          placeholder: "ID of the media",
+        },
+      },
+      {
+        name: "content-imdbID",
+        label: "IMDB ID",
+        required: false,
+        type: "text",
+        props: {
+          placeholder: "IMDB id of the media",
+        },
+      },
+      {
+        name: "content-type",
+        label: "Type",
+        required: false,
+        type: "text",
+        props: {
+          placeholder: "Type of the media",
+        },
+      },
+      {
+        name: "content-genre",
+        label: "Genre",
+        required: false,
+        type: "text",
+        props: {
+          placeholder: "Genre of the media",
+        },
+      },
+      {
+        name: "content-language",
+        label: "Language",
+        required: false,
+        type: "text",
+        props: {
+          placeholder: "Language of the media",
+        },
+      },
+      {
+        name: "content-cost",
+        label: "Cost",
+        required: false,
+        type: "number",
+        props: {
+          min: 0,
+          defaultValue: 0,
+        },
+      },
+      {
+        name: "content-price",
+        label: "Price",
+        required: false,
+        type: "number",
+        props: {
+          min: 0,
+          defaultValue: 0,
+        },
+      },
+      {
+        name: "content-playbackType",
+        label: "Playback Type",
+        required: false,
+        type: "select",
+        options: [
+          { code: "", name: "" },
+          { code: "Vod", name: "Vod" },
+          { code: "Live", name: "Live" },
+          { code: "catch-up", name: "Catch-up" },
+          { code: "offline", name: "Offline" },
+        ],
+      },
+      {
+        name: "content-drm",
+        label: "DRM",
+        required: false,
+        type: "text",
+        props: {
+          placeholder: "DRM of the media",
+        },
+      },
     ],
   },
   {
@@ -270,7 +422,6 @@ const sections = [
         required: false,
         type: "boolean",
         props: {
-          placeholder: "Ignores ad time in the join time",
           defaultValue: false,
         },
       },
@@ -344,6 +495,38 @@ const sections = [
         type: "text",
         props: {
           placeholder: "Provider code",
+        },
+      },
+
+      {
+        name: "ad-givenAds",
+        label: "Given Ads",
+        required: false,
+        type: "number",
+        props: {
+          min: 0,
+          defaultValue: 1,
+          max: 3,
+        },
+      },
+      {
+        name: "ad-givenBreaks",
+        label: "Given Breaks",
+        required: false,
+        type: "number",
+        props: {
+          min: 0,
+          defaultValue: 1,
+          max: 3,
+        },
+      },
+      {
+        name: "ad-blockDetection",
+        label: "Ignore",
+        required: false,
+        type: "boolean",
+        props: {
+          defaultChecked: false,
         },
       },
       {
@@ -645,8 +828,41 @@ const sections = [
         },
       },
       {
+        name: "user-email",
+        label: "User Email",
+        required: false,
+        type: "text",
+        props: {
+          placeholder: "user@mail",
+        },
+      },
+      {
+        name: "user-anonymousId",
+        label: "Anonymous ID",
+        required: false,
+        type: "text",
+        props: {
+          placeholder: "1234",
+        },
+      },
+      {
+        name: "user.obfuscateIp",
+        label: "Obfuscated IP",
+        required: false,
+        type: "boolean",
+        props: {
+          defaultChecked: false,
+          placeholder: "Obfuscated the IP address",
+        },
+      },
+    ],
+  },
+  {
+    name: "Device",
+    fields: [
+      {
         name: "device-code",
-        label: "Device",
+        label: "Code",
         required: false,
         type: "select",
         options: [
@@ -760,13 +976,84 @@ const sections = [
         ],
       },
       {
-        name: "user.obfuscateIp",
-        label: "Obfuscated IP",
+        name: "device-model",
+        label: "Model",
+        required: false,
+        type: "text",
+        props: {
+          placeholder: "Model name",
+        },
+      },
+      {
+        name: "device-brand",
+        label: "Brand",
+        required: false,
+        type: "text",
+        props: {
+          placeholder: "Vendor name",
+        },
+      },
+      {
+        name: "device-type",
+        label: "Type",
+        required: false,
+        type: "text",
+        props: {
+          placeholder: "pc, smartphone, stb, tv, etc",
+        },
+      },
+      {
+        name: "device-osName",
+        label: "OS Name",
+        required: false,
+        type: "text",
+        props: {
+          placeholder: "OS version",
+        },
+      },
+      {
+        name: "device-browserName",
+        label: "Browser",
+        required: false,
+        type: "text",
+        props: {
+          placeholder: "browser name",
+        },
+      },
+      {
+        name: "device-browserVersion",
+        label: "Browser Version",
+        required: false,
+        type: "text",
+        props: {
+          placeholder: "browser version",
+        },
+      },
+      {
+        name: "device-browserType",
+        label: "Browser Type",
+        required: false,
+        type: "text",
+        props: {
+          placeholder: "browser type",
+        },
+      },
+      {
+        name: "device-browserEngine",
+        label: "Browser Engine",
+        required: false,
+        type: "text",
+        props: {
+          placeholder: "browser engine",
+        },
+      },
+      {
+        name: "device-isAnonymous",
+        label: "Is Anonymous",
         required: false,
         type: "boolean",
         props: {
           defaultChecked: false,
-          placeholder: "Obfuscated the IP address",
         },
       },
     ],
