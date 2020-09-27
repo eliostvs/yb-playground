@@ -339,7 +339,7 @@ function Players({ actor }) {
   return (
     <>
       {state.children.ads ? (
-        <AdPlayer actor={state.children.ads} />
+        <AdsPlayer actor={state.children.ads} />
       ) : (
         <MainPlayer state={state} send={send} />
       )}
@@ -464,7 +464,7 @@ function calculateProgress(currentTime, duration) {
   return (currentTime / duration) * 100
 }
 
-function AdPlayer({ actor }) {
+function AdsPlayer({ actor }) {
   const [state, send] = useService(actor)
 
   return (
@@ -487,7 +487,7 @@ function AdPlayer({ actor }) {
   )
 }
 
-AdPlayer.propTypes = {
+AdsPlayer.propTypes = {
   actor: PropTypes.object.isRequired,
 }
 
