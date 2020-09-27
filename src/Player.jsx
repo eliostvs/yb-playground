@@ -84,6 +84,22 @@ function toSeconds(totalSeconds, minutes) {
   return totalSeconds - minutes * 60
 }
 
+function fireQuartile({ currentTime, duration, adapter }) {
+  const quartile = currentTime / duration
+
+  switch (true) {
+    case quartile >= 0.75: {
+      return adapter.fireQuartile(3)
+    }
+    case quartile >= 0.5: {
+      return adapter.fireQuartile(2)
+    }
+    case quartile >= 0.25: {
+      return adapter.fireQuartile(1)
+    }
+  }
+}
+
 const adsMachine = Machine({
   id: "ads",
   initial: "ready",
@@ -117,7 +133,9 @@ const adsMachine = Machine({
           invoke: { src: setupTickInterval },
           on: {
             PAUSE: { target: "paused", actions: [firePause] },
-            TICK: { actions: [updateCurrentTime, updateAdapterPlayHead] },
+            TICK: {
+              actions: [updateCurrentTime, updateAdapterPlayHead, fireQuartile],
+            },
           },
           always: [
             {
