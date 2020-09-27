@@ -54,11 +54,11 @@ const AdAdapter = youbora.Adapter.extend({
   },
 
   getPosition() {
-    this.player.position
+    return this.player.position
   },
 
-  setPosition(position) {
-    this.player.position = position === 0 ? "pre" : "mid"
+  setPosition(duration) {
+    this.player.position = duration === 0 ? "pre" : "mid"
   },
 })
 
