@@ -36,9 +36,9 @@
   },
   "dependencies": {
     "@xstate/react": "^0.8.1",
-    "react": ">=16.8.0",
-    "react-dom": ">=16.8.0",
-    "react-hook-form": ">=6.0.0",
+    "react": "^16.8.0",
+    "react-dom": "^16.8.0",
+    "react-hook-form": "^6.0.0",
     "uuid": "^8.3.0",
     "xstate": "^4.12.0",
     "youboralib": "^6.7.15"
