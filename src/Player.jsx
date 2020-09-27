@@ -366,10 +366,10 @@ function MainPlayer({ state, send }) {
       <div className="flex justify-between gap-2 mt-2">
         <PlayButton state={state} send={send} />
         <PauseButton state={state} send={send} />
-        <StopButton state={state} send={send} />
-        <ErrorButton state={state} send={send} />
         <BufferButton state={state} send={send} />
         <AdsButton state={state} send={send} />
+        <StopButton state={state} send={send} />
+        <ErrorButton state={state} send={send} />
       </div>
     </div>
   )
