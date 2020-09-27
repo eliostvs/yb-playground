@@ -243,7 +243,7 @@ const playerMachine = Machine({
       on: {
         STARTED_SCRUBBING: { target: "#player.scrubbing" },
         BUFFER: { target: "#player.buffering" },
-        STARTED_ADS: { target: "#player.ads", actions: [firePause] },
+        STARTED_ADS: { target: "#player.ads" },
       },
       states: {
         hist: { type: "history" },
@@ -297,7 +297,7 @@ const playerMachine = Machine({
           interval: (context) => context.interval,
           currentTime: 0,
         },
-        onDone: { target: "playing.hist", actions: [fireResume] },
+        onDone: { target: "playing.hist" },
       },
     },
   },
