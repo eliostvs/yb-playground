@@ -1197,14 +1197,14 @@ Form.propTypes = {
 }
 
 function ResetButton({ disabled, reset }) {
-  const extraStyle = disabled
+  const activeStyle = disabled
     ? "text-gray-500 cursor-not-allowed"
     : "text-gray-700"
 
   return (
     <button
       onClick={reset}
-      className={`px-6 py-4 text-sm font-medium leading-5 tracking-wide uppercase transition duration-150 ease-in-out border border-gray-300 rounded-md hover:text-gray-500 focus:outline-none focus:border-blue-300 focus:shadow-outline-blue active:bg-gray-50 active:text-gray-800 ${extraStyle}`}
+      className={`px-6 py-4 text-sm font-medium leading-5 tracking-wide uppercase transition duration-150 ease-in-out border border-gray-300 rounded-md hover:text-gray-500 focus:outline-none focus:border-blue-300 focus:shadow-outline-blue active:bg-gray-50 active:text-gray-800 ${activeStyle}`}
     >
       reset
     </button>
@@ -1217,7 +1217,7 @@ ResetButton.propTypes = {
 }
 
 function StartButton({ disabled }) {
-  const extraStyle = disabled
+  const activeStyle = disabled
     ? "bg-indigo-500 cursor-not-allowed"
     : "bg-indigo-600 "
 
@@ -1225,7 +1225,7 @@ function StartButton({ disabled }) {
     <button
       type="submit"
       form="optionsForm"
-      className={`px-6 py-4 text-sm font-medium leading-5 tracking-wide text-white uppercase transition duration-150 ease-in-out border border-transparent rounded-md hover:bg-indigo-500 focus:outline-none focus:border-indigo-700 focus:shadow-outline-indigo active:bg-indigo-700 ${extraStyle}`}
+      className={`px-6 py-4 text-sm font-medium leading-5 tracking-wide text-white uppercase transition duration-150 ease-in-out border border-transparent rounded-md hover:bg-indigo-500 focus:outline-none focus:border-indigo-700 focus:shadow-outline-indigo active:bg-indigo-700 ${activeStyle}`}
     >
       start
     </button>
