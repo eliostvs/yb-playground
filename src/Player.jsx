@@ -221,7 +221,7 @@ const playerMachine = Machine({
           interval: (context) => context.interval,
           currentTime: 0,
         },
-        onDone: { target: "playing", actions: [fireResume] },
+        onDone: { target: "playing.hist", actions: [fireResume] },
       },
     },
   },
