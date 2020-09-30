@@ -17,7 +17,6 @@
     "parcel-bundler": "^1.12.4",
     "postcss-cli": "^7.1.1",
     "prettier": "^2.0.5",
-    "prop-types": "^15.7.2",
     "tailwindcss": "^1.7.3",
     "tailwindcss-debug-screens": "^1.1.0"
   },
@@ -36,6 +35,7 @@
   },
   "dependencies": {
     "@xstate/react": "^0.8.1",
+    "prop-types": "^15.7.2",
     "react": "^16.8.0",
     "react-dom": "^16.8.0",
     "react-hook-form": "^6.0.0",
