@@ -87,7 +87,7 @@ function emptyFields([, value]) {
 }
 
 function renameFields([key, value]) {
-  return [key.replace("-", "."), value]
+  return [key.replaceAll("-", "."), value]
 }
 
 function joinFields(full, [key, value]) {
