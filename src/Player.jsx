@@ -232,7 +232,7 @@ const playerMachine = Machine({
   },
   states: {
     ready: {
-      entry: [saveAdapter, fireInit],
+      entry: [saveAdapter, fireInit, fireStart],
       on: {
         PLAY: { target: "playing" },
         STARTED_ADS: { target: "ads" },
