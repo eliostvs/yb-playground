@@ -393,9 +393,9 @@ MainPlayer.propTypes = {
 }
 
 function CurrentTime({ state, bgColor }) {
-  const animatePulse = whenIn(state, {
-    "playing.paused buffering": "animate-pulse-fast",
-  })
+  const animatePulse = matchesAny(state, ["playing.pause", "buffering"])
+    ? "animate-pulse-fast"
+    : ""
 
   return (
     <div className={`${bgColor} rounded-lg`}>
@@ -802,13 +802,6 @@ function WifiOffIcon() {
       <line x1="12" y1="20" x2="12.01" y2="20" />
     </svg>
   )
-}
-
-function whenIn(state, states = {}, _default = "") {
-  const matched = Object.entries(states)
-    .filter(([name]) => matchesAny(state, name.split(" ")))
-    .map(([, value]) => value)
-  return matched.length ? matched[0] : _default
 }
 
 function matchesAny(state, names) {
