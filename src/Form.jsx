@@ -73,6 +73,17 @@ const sections = [
     name: "Content",
     fields: [
       {
+        name: "content-resource",
+        label: "Resource",
+        required: true,
+        type: "text",
+        props: {
+          placeholder: "URL/path of the current media resource",
+          defaultValue:
+            "https://bitmovin-a.akamaihd.net/content/sintel/sintel.mpd",
+        },
+      },
+      {
         name: "content-title",
         label: "Title",
         required: true,
@@ -80,6 +91,15 @@ const sections = [
         props: {
           placeholder: "Title of the media",
           defaultValue: "Sintel",
+        },
+      },
+      {
+        name: "content-id",
+        label: "ID",
+        required: false,
+        type: "text",
+        props: {
+          placeholder: "video-1234",
         },
       },
       {
@@ -92,14 +112,75 @@ const sections = [
         },
       },
       {
-        name: "content-resource",
-        label: "Resource",
-        required: true,
+        name: "content-season",
+        label: "Season",
+        required: false,
         type: "text",
         props: {
-          placeholder: "URL/path of the current media resource",
-          defaultValue:
-            "https://bitmovin-a.akamaihd.net/content/sintel/sintel.mpd",
+          placeholder: "Season of the media",
+        },
+      },
+      {
+        name: "content-episodeTitle",
+        label: "Episode",
+        required: false,
+        type: "text",
+        props: {
+          placeholder: "Episode title of the media",
+        },
+      },
+      {
+        name: "content-tvShow",
+        label: "TV Show",
+        required: false,
+        type: "text",
+        props: {
+          placeholder: "TV Show of the media",
+        },
+      },
+      {
+        name: "content-channel",
+        label: "Channel",
+        required: false,
+        type: "text",
+        props: {
+          placeholder: "channel name of the media",
+        },
+      },
+      {
+        name: "content-type",
+        label: "Type",
+        required: false,
+        type: "text",
+        props: {
+          placeholder: "Type of the media",
+        },
+      },
+      {
+        name: "content-genre",
+        label: "Genre",
+        required: false,
+        type: "text",
+        props: {
+          placeholder: "Genre of the media",
+        },
+      },
+      {
+        name: "content-language",
+        label: "Language",
+        required: false,
+        type: "text",
+        props: {
+          placeholder: "Language of the media",
+        },
+      },
+      {
+        name: "content-drm",
+        label: "DRM",
+        required: false,
+        type: "text",
+        props: {
+          placeholder: "DRM of the media",
         },
       },
       {
@@ -124,6 +205,33 @@ const sections = [
         },
       },
       {
+        name: "content-saga",
+        label: "Saga",
+        required: false,
+        type: "text",
+        props: {
+          placeholder: "Saga of the media",
+        },
+      },
+      {
+        name: "content-imdbId",
+        label: "IMDB ID",
+        required: false,
+        type: "text",
+        props: {
+          placeholder: "IMDB id of the media",
+        },
+      },
+      {
+        name: "content.gracenoteId",
+        label: "Gradenote ID",
+        required: false,
+        type: "text",
+        props: {
+          placeholder: "Gracenote id of the media",
+        },
+      },
+      {
         name: "content-cdn",
         label: "CDN",
         required: false,
@@ -136,16 +244,16 @@ const sections = [
         required: false,
         type: "text",
         props: {
-          placeholder: "CDN node id",
+          placeholder: "CDN node",
         },
       },
       {
         name: "content-cdnType",
-        label: "CDN Node",
+        label: "CDN Type",
         required: false,
         type: "text",
         props: {
-          placeholder: "CDN node type",
+          placeholder: "CDN type",
         },
       },
       {
@@ -232,96 +340,6 @@ const sections = [
         },
       },
       {
-        name: "content-season",
-        label: "Season",
-        required: false,
-        type: "text",
-        props: {
-          placeholder: "Season of the media",
-        },
-      },
-      {
-        name: "content-episodeTitle",
-        label: "Season",
-        required: false,
-        type: "text",
-        props: {
-          placeholder: "Episode title of the media",
-        },
-      },
-      {
-        name: "content-tvShow",
-        label: "TV Show",
-        required: false,
-        type: "text",
-        props: {
-          placeholder: "TV Show of the media",
-        },
-      },
-      {
-        name: "content-channel",
-        label: "Channel",
-        required: false,
-        type: "text",
-        props: {
-          placeholder: "channel name of the media",
-        },
-      },
-      {
-        name: "content-saga",
-        label: "Saga",
-        required: false,
-        type: "text",
-        props: {
-          placeholder: "Saga of the media",
-        },
-      },
-      {
-        name: "content-id",
-        label: "ID",
-        required: false,
-        type: "text",
-        props: {
-          placeholder: "ID of the media",
-        },
-      },
-      {
-        name: "content-imdbID",
-        label: "IMDB ID",
-        required: false,
-        type: "text",
-        props: {
-          placeholder: "IMDB id of the media",
-        },
-      },
-      {
-        name: "content-type",
-        label: "Type",
-        required: false,
-        type: "text",
-        props: {
-          placeholder: "Type of the media",
-        },
-      },
-      {
-        name: "content-genre",
-        label: "Genre",
-        required: false,
-        type: "text",
-        props: {
-          placeholder: "Genre of the media",
-        },
-      },
-      {
-        name: "content-language",
-        label: "Language",
-        required: false,
-        type: "text",
-        props: {
-          placeholder: "Language of the media",
-        },
-      },
-      {
         name: "content-cost",
         label: "Cost",
         required: false,
@@ -354,13 +372,190 @@ const sections = [
           { code: "offline", name: "Offline" },
         ],
       },
+    ],
+  },
+
+  {
+    name: "Custom Dimensions",
+    fields: [
       {
-        name: "content-drm",
-        label: "DRM",
+        name: "content-customDimension-1",
+        label: "Extra 1",
         required: false,
         type: "text",
         props: {
-          placeholder: "DRM of the media",
+          placeholder: "...",
+        },
+      },
+      {
+        name: "content-customDimension-2",
+        label: "Extra 2",
+        required: false,
+        type: "text",
+        props: {
+          placeholder: "...",
+        },
+      },
+      {
+        name: "content-customDimension-3",
+        label: "Extra 3",
+        required: false,
+        type: "text",
+        props: {
+          placeholder: "...",
+        },
+      },
+      {
+        name: "content-customDimension-4",
+        label: "Extra 4",
+        required: false,
+        type: "text",
+        props: {
+          placeholder: "...",
+        },
+      },
+      {
+        name: "content-customDimension-5",
+        label: "Extra 5",
+        required: false,
+        type: "text",
+        props: {
+          placeholder: "...",
+        },
+      },
+      {
+        name: "content-customDimension-6",
+        label: "Extra 6",
+        required: false,
+        type: "text",
+        props: {
+          placeholder: "...",
+        },
+      },
+      {
+        name: "content-customDimension-7",
+        label: "Extra 7",
+        required: false,
+        type: "text",
+        props: {
+          placeholder: "...",
+        },
+      },
+      {
+        name: "content-customDimension-8",
+        label: "Extra 8",
+        required: false,
+        type: "text",
+        props: {
+          placeholder: "...",
+        },
+      },
+      {
+        name: "content-customDimension-9",
+        label: "Extra 9",
+        required: false,
+        type: "text",
+        props: {
+          placeholder: "...",
+        },
+      },
+      {
+        name: "content-customDimension-10",
+        label: "Extra 10",
+        required: false,
+        type: "text",
+        props: {
+          placeholder: "...",
+        },
+      },
+      {
+        name: "content-customDimension-11",
+        label: "Extra 11",
+        required: false,
+        type: "text",
+        props: {
+          placeholder: "...",
+        },
+      },
+      {
+        name: "content-customDimension-12",
+        label: "Extra 12",
+        required: false,
+        type: "text",
+        props: {
+          placeholder: "...",
+        },
+      },
+      {
+        name: "content-customDimension-13",
+        label: "Extra 13",
+        required: false,
+        type: "text",
+        props: {
+          placeholder: "...",
+        },
+      },
+      {
+        name: "content-customDimension-14",
+        label: "Extra 14",
+        required: false,
+        type: "text",
+        props: {
+          placeholder: "...",
+        },
+      },
+      {
+        name: "content-customDimension-15",
+        label: "Extra 15",
+        required: false,
+        type: "text",
+        props: {
+          placeholder: "...",
+        },
+      },
+      {
+        name: "content-customDimension-16",
+        label: "Extra 16",
+        required: false,
+        type: "text",
+        props: {
+          placeholder: "...",
+        },
+      },
+      {
+        name: "content-customDimension-17",
+        label: "Extra 17",
+        required: false,
+        type: "text",
+        props: {
+          placeholder: "...",
+        },
+      },
+      {
+        name: "content-customDimension-18",
+        label: "Extra 18",
+        required: false,
+        type: "text",
+        props: {
+          placeholder: "...",
+        },
+      },
+      {
+        name: "content-customDimension-19",
+        label: "Extra 19",
+        required: false,
+        type: "text",
+        props: {
+          placeholder: "...",
+        },
+      },
+      {
+        name: "content-customDimension-20",
+        label: "Extra 20",
+        required: false,
+        type: "text",
+        props: {
+          placeholder: "...",
         },
       },
     ],
@@ -535,7 +730,7 @@ const sections = [
         required: false,
         type: "text",
         props: {
-          placeholder: "Custom dimension 1",
+          placeholder: "...",
         },
       },
       {
@@ -544,7 +739,7 @@ const sections = [
         required: false,
         type: "text",
         props: {
-          placeholder: "Custom dimension 2",
+          placeholder: "...",
         },
       },
       {
@@ -553,7 +748,7 @@ const sections = [
         required: false,
         type: "text",
         props: {
-          placeholder: "Custom dimension 3",
+          placeholder: "...",
         },
       },
       {
@@ -562,7 +757,7 @@ const sections = [
         required: false,
         type: "text",
         props: {
-          placeholder: "Custom dimension 4",
+          placeholder: "...",
         },
       },
       {
@@ -571,7 +766,7 @@ const sections = [
         required: false,
         type: "text",
         props: {
-          placeholder: "Custom dimension 5",
+          placeholder: "...",
         },
       },
       {
@@ -580,7 +775,7 @@ const sections = [
         required: false,
         type: "text",
         props: {
-          placeholder: "Custom dimension 6",
+          placeholder: "...",
         },
       },
       {
@@ -589,7 +784,7 @@ const sections = [
         required: false,
         type: "text",
         props: {
-          placeholder: "Custom dimension 7",
+          placeholder: "...",
         },
       },
       {
@@ -598,7 +793,7 @@ const sections = [
         required: false,
         type: "text",
         props: {
-          placeholder: "Custom dimension 8",
+          placeholder: "...",
         },
       },
       {
@@ -607,7 +802,7 @@ const sections = [
         required: false,
         type: "text",
         props: {
-          placeholder: "Custom dimension 9",
+          placeholder: "...",
         },
       },
       {
@@ -616,192 +811,7 @@ const sections = [
         required: false,
         type: "text",
         props: {
-          placeholder: "Custom dimension 10",
-        },
-      },
-    ],
-  },
-  {
-    name: "Custom Dimensions",
-    fields: [
-      {
-        name: "customDimension-1",
-        label: "Extra 1",
-        required: false,
-        type: "text",
-        props: {
-          placeholder: "Custom dimension 1",
-        },
-      },
-      {
-        name: "customDimension-2",
-        label: "Extra 2",
-        required: false,
-        type: "text",
-        props: {
-          placeholder: "Custom dimension 2",
-        },
-      },
-      {
-        name: "customDimension-3",
-        label: "Extra 3",
-        required: false,
-        type: "text",
-        props: {
-          placeholder: "Custom dimension 3",
-        },
-      },
-      {
-        name: "customDimension-4",
-        label: "Extra 4",
-        required: false,
-        type: "text",
-        props: {
-          placeholder: "Custom dimension 4",
-        },
-      },
-      {
-        name: "customDimension-5",
-        label: "Extra 5",
-        required: false,
-        type: "text",
-        props: {
-          placeholder: "Custom dimension 5",
-        },
-      },
-      {
-        name: "customDimension-6",
-        label: "Extra 6",
-        required: false,
-        type: "text",
-        props: {
-          placeholder: "Custom dimension 6",
-        },
-      },
-      {
-        name: "customDimension-7",
-        label: "Extra 7",
-        required: false,
-        type: "text",
-        props: {
-          placeholder: "Custom dimension 7",
-        },
-      },
-      {
-        name: "customDimension-8",
-        label: "Extra 8",
-        required: false,
-        type: "text",
-        props: {
-          placeholder: "Custom dimension 8",
-        },
-      },
-      {
-        name: "customDimension-9",
-        label: "Extra 9",
-        required: false,
-        type: "text",
-        props: {
-          placeholder: "Custom dimension 9",
-        },
-      },
-      {
-        name: "customDimension-10",
-        label: "Extra 10",
-        required: false,
-        type: "text",
-        props: {
-          placeholder: "Custom dimension 10",
-        },
-      },
-      {
-        name: "customDimension-11",
-        label: "Extra 11",
-        required: false,
-        type: "text",
-        props: {
-          placeholder: "Custom dimension 11",
-        },
-      },
-      {
-        name: "customDimension-12",
-        label: "Extra 12",
-        required: false,
-        type: "text",
-        props: {
-          placeholder: "Custom dimension 12",
-        },
-      },
-      {
-        name: "customDimension-13",
-        label: "Extra 13",
-        required: false,
-        type: "text",
-        props: {
-          placeholder: "Custom dimension 13",
-        },
-      },
-      {
-        name: "customDimension-14",
-        label: "Extra 14",
-        required: false,
-        type: "text",
-        props: {
-          placeholder: "Custom dimension 14",
-        },
-      },
-      {
-        name: "customDimension-15",
-        label: "Extra 15",
-        required: false,
-        type: "text",
-        props: {
-          placeholder: "Custom dimension 15",
-        },
-      },
-      {
-        name: "customDimension-16",
-        label: "Extra 16",
-        required: false,
-        type: "text",
-        props: {
-          placeholder: "Custom dimension 16",
-        },
-      },
-      {
-        name: "customDimension-17",
-        label: "Extra 17",
-        required: false,
-        type: "text",
-        props: {
-          placeholder: "Custom dimension 17",
-        },
-      },
-      {
-        name: "customDimension-18",
-        label: "Extra 18",
-        required: false,
-        type: "text",
-        props: {
-          placeholder: "Custom dimension 18",
-        },
-      },
-      {
-        name: "customDimension-19",
-        label: "Extra 19",
-        required: false,
-        type: "text",
-        props: {
-          placeholder: "Custom dimension 19",
-        },
-      },
-      {
-        name: "customDimension-20",
-        label: "Extra 20",
-        required: false,
-        type: "text",
-        props: {
-          placeholder: "Custom dimension 20",
+          placeholder: "...",
         },
       },
     ],
@@ -824,7 +834,7 @@ const sections = [
         required: false,
         type: "text",
         props: {
-          placeholder: "User type",
+          placeholder: "Registered",
         },
       },
       {
@@ -833,7 +843,7 @@ const sections = [
         required: false,
         type: "text",
         props: {
-          placeholder: "user@mail",
+          placeholder: "user@mail.com",
         },
       },
       {
@@ -842,17 +852,16 @@ const sections = [
         required: false,
         type: "text",
         props: {
-          placeholder: "1234",
+          placeholder: "anonymous",
         },
       },
       {
-        name: "user.obfuscateIp",
+        name: "user-obfuscateIp",
         label: "Obfuscated IP",
         required: false,
         type: "boolean",
         props: {
           defaultChecked: false,
-          placeholder: "Obfuscated the IP address",
         },
       },
     ],
@@ -1008,43 +1017,7 @@ const sections = [
         required: false,
         type: "text",
         props: {
-          placeholder: "OS version",
-        },
-      },
-      {
-        name: "device-browserName",
-        label: "Browser",
-        required: false,
-        type: "text",
-        props: {
-          placeholder: "browser name",
-        },
-      },
-      {
-        name: "device-browserVersion",
-        label: "Browser Version",
-        required: false,
-        type: "text",
-        props: {
-          placeholder: "browser version",
-        },
-      },
-      {
-        name: "device-browserType",
-        label: "Browser Type",
-        required: false,
-        type: "text",
-        props: {
-          placeholder: "browser type",
-        },
-      },
-      {
-        name: "device-browserEngine",
-        label: "Browser Engine",
-        required: false,
-        type: "text",
-        props: {
-          placeholder: "browser engine",
+          placeholder: "Linux",
         },
       },
       {
@@ -1059,6 +1032,47 @@ const sections = [
     ],
   },
   {
+    name: "Browser",
+    fields: [
+      {
+        name: "device-browserName",
+        label: "Name",
+        required: false,
+        type: "text",
+        props: {
+          placeholder: "firefox",
+        },
+      },
+      {
+        name: "device-browserVersion",
+        label: "Version",
+        required: false,
+        type: "text",
+        props: {
+          placeholder: "79",
+        },
+      },
+      {
+        name: "device-browserType",
+        label: "Type",
+        required: false,
+        type: "text",
+        props: {
+          placeholder: "mobile",
+        },
+      },
+      {
+        name: "device-browserEngine",
+        label: "Engine",
+        required: false,
+        type: "text",
+        props: {
+          placeholder: "SpiderMonkey",
+        },
+      },
+    ],
+  },
+  {
     name: "Parse",
     fields: [
       {
@@ -1068,7 +1082,6 @@ const sections = [
         type: "boolean",
         props: {
           defaultChecked: false,
-          placeholder: "Parse manifest files",
         },
       },
       {
@@ -1078,7 +1091,6 @@ const sections = [
         type: "boolean",
         props: {
           defaultChecked: false,
-          placeholder: "Query the CDN to retrieve the node name",
         },
       },
       {
@@ -1087,7 +1099,7 @@ const sections = [
         required: false,
         type: "text",
         props: {
-          placeholder: "Fetch the CDN code from the custom header",
+          placeholder: "x-cdn-forward",
         },
       },
     ],
@@ -1101,7 +1113,7 @@ const sections = [
         required: false,
         type: "text",
         props: {
-          placeholder: "Host of the Fastdata service",
+          placeholder: "a-fds.youborafds01.com",
         },
       },
       {
@@ -1110,7 +1122,7 @@ const sections = [
         required: false,
         type: "boolean",
         props: {
-          placeholder: "Use https",
+          defaultChecked: false,
         },
       },
       {
@@ -1135,7 +1147,7 @@ const sections = [
         required: false,
         type: "text",
         props: {
-          placeholder: "IP of the viewer/user",
+          placeholder: "1.1.1.1",
         },
       },
       {
@@ -1144,7 +1156,7 @@ const sections = [
         required: false,
         type: "text",
         props: {
-          placeholder: "Name of the internet service provider",
+          placeholder: "Comcast",
         },
       },
     ],
