@@ -223,7 +223,7 @@ const sections = [
         },
       },
       {
-        name: "content.gracenoteId",
+        name: "content-gracenoteId",
         label: "Gradenote ID",
         required: false,
         type: "text",
